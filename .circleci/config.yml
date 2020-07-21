@@ -4,8 +4,8 @@ jobs:
     docker:
       - image: fr3akyphantom/droid-builder:edge
     environment:
-      # GitHubMail: "" # Git User Email Address
-      # GitHubName: "" # Git Username
+      # GitHubMail: "lopestom1@gmail.com" # Git User Email Address
+      # GitHubName: "lopestom" # Git Username
       # GITHUB_TOKEN: '' # MUST BE SECRET & PUT IN CIRCLECI PROJECT ENV VARS
       VENDOR: 'Umidigi' # MANDATORY
       CODENAME: 'Power_3' # MANDATORY
