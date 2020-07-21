@@ -7,7 +7,7 @@ jobs:
       # GitHubMail: "" # Git User Email Address
       # GitHubName: "" # Git Username
       # GITHUB_TOKEN: '' # MUST BE SECRET & PUT IN CIRCLECI PROJECT ENV VARS
-      VENDOR: 'umidigi' # MANDATORY
+      VENDOR: 'Umidigi' # MANDATORY
       CODENAME: 'Power_3' # MANDATORY
       FLAVOR: 'eng' # MANDATORY
     working_directory: /home/builder/android
@@ -50,7 +50,7 @@ jobs:
             
             # Unshallow vendor_omni (Only for Unofficial Builds)
             echo -e "\nFixing Unofficial TWRP Build lunch error\n"
-            repo forall vendor/omni -c "git fetch --unshallow omnirom android-9.0"
+            repo forall vendor/omni -c "git fetch --unshallow omnirom android-10.0"
             # Retain "roomservice: Do not overwrite existing repositories"
             repo forall vendor/omni -c "git revert 718f4c2fd6890f5eaa2d4972b1c3f3f582b5da47 -Xtheirs --no-edit --no-commit"
             # Retain "roomservice: Do not overwrite existing devices"
