@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/umidigi/Power_3
+DEVICE_PATH := device/Umidigi/Power_3
 
 # For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
