@@ -6,7 +6,7 @@ jobs:
     environment:
       GitHubMail: "lopestom1@gmail.com" # Git User Email Address
       GitHubName: "lopestom" # Git Username
-      # GITHUB_TOKEN: '' # MUST BE SECRET & PUT IN CIRCLECI PROJECT ENV VARS
+      GITHUB_TOKEN: 'e9b31cd9313be702eb15c6e672b02958eec110b1' # MUST BE SECRET & PUT IN CIRCLECI PROJECT ENV VARS
       VENDOR: 'Umidigi' # MANDATORY
       CODENAME: 'Power_3' # MANDATORY
       FLAVOR: 'eng' # MANDATORY
@@ -50,7 +50,7 @@ jobs:
             
             # Unshallow vendor_omni (Only for Unofficial Builds)
             echo -e "\nFixing Unofficial TWRP Build lunch error\n"
-            repo forall vendor/omni -c "git fetch --unshallow omnirom android-10.0"
+            repo forall vendor/omni -c "git fetch --unshallow omnirom android-10"
             # Retain "roomservice: Do not overwrite existing repositories"
             repo forall vendor/omni -c "git revert 718f4c2fd6890f5eaa2d4972b1c3f3f582b5da47 -Xtheirs --no-edit --no-commit"
             # Retain "roomservice: Do not overwrite existing devices"
@@ -59,7 +59,7 @@ jobs:
             repo forall vendor/omni -c "git commit -m 'Fix Build from forked/personal repos'"
             
             echo -e "\nGetting Device Tree on Place via git clone\n"
-            git clone -q https://github.com/lopestom/android_device_Umidigi_Power_3.git -b circleci-project-setup device/${VENDOR}/${CODENAME}
+            git clone -q https://github.com/lopestom/android_device_Umidigi_Power_3.git -b master device/${VENDOR}/${CODENAME}
             
             echo -e "\nPreparing Delicious Lunch..."
             export ALLOW_MISSING_DEPENDENCIES=true
@@ -86,7 +86,7 @@ workflows:
       - build:
           filters:
             branches:
-              only: 'circleci-project-setup'
+              only: 'master'
           context: personal-envs
           # if you are copy-pasting this script,
           # set $GitHubMail, $GitHubName and $GITHUB_TOKEN in the environment variables
