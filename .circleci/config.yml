@@ -59,7 +59,7 @@ jobs:
             repo forall vendor/omni -c "git commit -m 'Fix Build from forked/personal repos'"
             
             echo -e "\nGetting Device Tree on Place via git clone\n"
-            git clone -q https://github.com/lopestom/android_device_Umidigi_Power_3.git -b master device/${VENDOR}/${CODENAME}
+            git clone -q https://github.com/lopestom/android_device_Umidigi_Power_3.git -b circleci-project-setup device/${VENDOR}/${CODENAME}
             
             echo -e "\nPreparing Delicious Lunch..."
             export ALLOW_MISSING_DEPENDENCIES=true
@@ -86,7 +86,7 @@ workflows:
       - build:
           filters:
             branches:
-              only: 'master'
+              only: 'circleci-project-setup'
           context: personal-envs
           # if you are copy-pasting this script,
           # set $GitHubMail, $GitHubName and $GITHUB_TOKEN in the environment variables
