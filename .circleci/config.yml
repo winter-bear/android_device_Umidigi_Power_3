@@ -6,7 +6,7 @@ jobs:
     environment:
       GitHubMail: "lopestom1@gmail.com" # Git User Email Address
       GitHubName: "lopestom" # Git Username
-      GITHUB_TOKEN: '4341b29cae2549f42542112592b45d0ef1939a99' # MUST BE SECRET & PUT IN CIRCLECI PROJECT ENV VARS
+      GITHUB_TOKEN: 'c297171bf33ed308a781850a00c9d63ebc048365' # MUST BE SECRET & PUT IN CIRCLECI PROJECT ENV VARS
       VENDOR: 'Umidigi' # MANDATORY
       CODENAME: 'Power_3' # MANDATORY
       FLAVOR: 'eng' # MANDATORY
@@ -29,7 +29,12 @@ jobs:
             git config --global credential.helper store
             git config --global color.ui true
             
-           cd /home/builder/android
+            echo -e "\nSetup Google Cookies for Smooth googlesource Cloning\n"
+            git clone -q "https://$GITHUB_TOKEN@github.com/$GitHubName/google-git-cookies.git" &> /dev/null
+            bash google-git-cookies/setup_cookies.sh
+            rm -rf google-git-cookies
+            
+            cd /home/builder/android
             
             echo -e "Initializing minimal manifest repo\n"
             repo init -q -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-10.0 --depth 1
