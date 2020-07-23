@@ -6,7 +6,7 @@ jobs:
     environment:
       GitHubMail: "lopestom1@gmail.com" # Git User Email Address
       GitHubName: "lopestom" # Git Username
-      GITHUB_TOKEN: 'bc2ec0f99657da3fc3c94da80b134c4a5c7bae9e' # MUST BE SECRET & PUT IN CIRCLECI PROJECT ENV VARS
+      GITHUB_TOKEN: '4341b29cae2549f42542112592b45d0ef1939a99' # MUST BE SECRET & PUT IN CIRCLECI PROJECT ENV VARS
       VENDOR: 'Umidigi' # MANDATORY
       CODENAME: 'Power_3' # MANDATORY
       FLAVOR: 'eng' # MANDATORY
