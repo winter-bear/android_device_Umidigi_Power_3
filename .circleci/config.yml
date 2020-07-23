@@ -29,12 +29,7 @@ jobs:
             git config --global credential.helper store
             git config --global color.ui true
             
-            echo -e "\nSetup Google Cookies for Smooth googlesource Cloning\n"
-            git clone -q "https://$GITHUB_TOKEN@github.com/$GitHubName/google-git-cookies.git" &> /dev/null
-            bash google-git-cookies/setup_cookies.sh
-            rm -rf google-git-cookies
-            
-            cd /home/builder/android
+           cd /home/builder/android
             
             echo -e "Initializing minimal manifest repo\n"
             repo init -q -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-10.0 --depth 1
